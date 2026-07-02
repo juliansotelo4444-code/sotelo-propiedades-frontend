@@ -10,14 +10,14 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import VerifyEmailPage from './pages/VerifyEmailPage'
 
-// Ruta privada — solo usuarios logueados
+
 function PrivateRoute({ children }) {
   const { user, loading } = useAuth()
   if (loading) return <div className="loading-screen"><span className="spinner" /></div>
   return user ? children : <Navigate to="/login" replace />
 }
 
-// Ruta pública — si ya está logueado, lo manda al home
+
 function PublicRoute({ children }) {
   const { user, loading } = useAuth()
   if (loading) return <div className="loading-screen"><span className="spinner" /></div>
